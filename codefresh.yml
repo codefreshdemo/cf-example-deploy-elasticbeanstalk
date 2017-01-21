@@ -15,5 +15,6 @@ steps:
     commands:
      - sh -c  "aws configure set region '${{AWS_REGION}}' && aws elasticbeanstalk update-environment --environment-name '${{AWS_ENV_NAME}}' --version-label '${{AWS_VERSION}}' "
     when:
-      - name: "Execute for 'AWS_BRANCH' branch"
-        condition: "'${{CF_BRANCH}}' == '${{AWS_BRANCH}}'"
+      condition:
+        all:
+          masterBranch: "'${{CF_BRANCH}}' == '${{AWS_BRANCH}}'"
