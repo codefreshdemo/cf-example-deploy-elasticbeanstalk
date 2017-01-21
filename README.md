@@ -1,4 +1,5 @@
 # cf-example-deploy-elasticbeanstalk
+[![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=codefreshdemo&repoName=cf-example-deploy-elasticbeanstalk&branch=master&pipelineName=cf-example-deploy-elasticbeanstalk&accountName=nikolai&type=cf-1)]( https://g.codefresh.io/repositories/codefreshdemo/cf-example-deploy-elasticbeanstalk/builds?filter=trigger:build;branch:master;service:58836950b2f11c0100175173~cf-example-deploy-elasticbeanstalk)
 
 Deployment to Elastic Beanstalk
 
@@ -30,8 +31,9 @@ deploy-elastic-beanstalk:
     commands:
      - sh -c  "aws configure set region '${{AWS_REGION}}' && aws elasticbeanstalk update-environment --environment-name '${{AWS_ENV_NAME}}' --version-label '${{AWS_VERSION}}' "
     when:
-      - name: "Execute for 'AWS_BRANCH' branch"
-        condition: "'${{CF_BRANCH}}' == '${{AWS_BRANCH}}'"
+      condition:
+        all:
+          masterBranch: "'${{CF_BRANCH}}' == '${{AWS_BRANCH}}'"
 ```
 
 ### Deployment Flow
