@@ -39,11 +39,11 @@ deploy-elastic-beanstalk:
 ![codefresh](./images/codefresh_eb_environment.png)
 - perform the following commands from root of your project
     * eb init
-    * eb create <name of created environment>
+    * eb create ${{AWS_ENV_NAME}}
 
 Note: If you don't have awsebcli - install EB CLI http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install.html
 
 ![codefresh](./images/codefresh_eb_health.png)
 
 - add this repository to Codefresh, provide the necessary environments variables and build this service
-![codefresh](./images/codefresh_eb_cf_step_result.png)
+![codefresh](./images/codefresh_eb_cf_step_deploy.png)
