@@ -22,7 +22,7 @@ Deployment to Elastic Beanstalk
 The ``${{AWS_VERSION}}`` of application you can find in the Elastic Beanstalk service
 ![codefresh](./images/codefresh_eb_version_label.png)
 
-Add the following step to codefresh.yml
+### Add the following step to codefresh.yml
 
 ```yml
 deploy-elastic-beanstalk:
